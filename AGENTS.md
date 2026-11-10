@@ -1,0 +1,6 @@
+- Portfolio content lives in src/content/site.ts as typed `Block` arrays rendered by src/components/blocks.tsx; add new media/feature types as a new Block variant so pages stay layout-stable.
+- All user media (any file type, any count) renders through the self-contained `Media` component in src/components/media.tsx, which detects kind from the URL and keeps a fixed-ratio frame; add new file kinds there, not as new per-type blocks.
+- Stack: TanStack Start (React 19) + Vite 8 + Tailwind v4 + nitro. Package manager is npm on Node 26 — no bun.
+- vite.config.ts is hand-assembled standard plugins in a fixed order: tailwind → tsconfigPaths → tanstackStart (server entry "server", importProtection) → nitro (build only) → react. Order matters; build errors on plugin reorder → restore order before debugging anything else.
+- Design language: editorial academic-catalog — ink #1a1a1a on white paper, serif display fonts, hairline rules, square corners, no gradients or flashy effects. Do not animate against the brief: restrained reveals only, or nothing.
+- Footer includes `© {auto year} {site.name}` via SiteFooter — keep it automatic.
